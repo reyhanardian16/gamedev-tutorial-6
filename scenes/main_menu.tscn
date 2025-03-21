@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://vf2ooqiwgksb"]
+
+[ext_resource type="FontFile" uid="uid://ccq42wgg5nl5n" path="res://assets/Fonts/Raw/MPlantin.ttf" id="1_y1sv0"]
+[ext_resource type="Script" path="res://scripts/link_button.gd" id="3_xqlfq"]
+[ext_resource type="Texture2D" uid="uid://dwc8dd51xoi1h" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_alien.png" id="4_2a2xh"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 70
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "TITLE
+
+"
+
+[node name="StartButton" type="LinkButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y1sv0")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+script = ExtResource("3_xqlfq")
+scene_to_load = "Level 1"
+
+[node name="SelectStageButton" type="LinkButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y1sv0")
+theme_override_font_sizes/font_size = 30
+text = "Select Stage"
+script = ExtResource("3_xqlfq")
+scene_to_load = "select_stage"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_2a2xh")
+stretch_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/StartButton" to="HBoxContainer/VBoxContainer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/SelectStageButton" to="HBoxContainer/VBoxContainer/SelectStageButton" method="_on_pressed"]

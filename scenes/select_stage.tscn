@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwe2dr5rm0nuh"]
+
+[ext_resource type="FontFile" uid="uid://ccq42wgg5nl5n" path="res://assets/Fonts/Raw/MPlantin.ttf" id="1_mlrj5"]
+[ext_resource type="Script" path="res://scripts/link_button.gd" id="2_q3s1t"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 54
+
+[node name="Level1" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_mlrj5")
+theme_override_font_sizes/font_size = 30
+text = "Level 1"
+script = ExtResource("2_q3s1t")
+scene_to_load = "Level 1"
+
+[node name="Level2" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_mlrj5")
+theme_override_font_sizes/font_size = 30
+text = "Level 2"
+script = ExtResource("2_q3s1t")
+scene_to_load = "Level 2"
+
+[node name="BackToMenu" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_mlrj5")
+theme_override_font_sizes/font_size = 30
+text = "Back to Menu"
+script = ExtResource("2_q3s1t")
+
+[connection signal="pressed" from="VBoxContainer/Level1" to="VBoxContainer/Level1" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Level2" to="VBoxContainer/Level2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_pressed"]
